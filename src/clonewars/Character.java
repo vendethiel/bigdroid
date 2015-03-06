@@ -1,6 +1,7 @@
 package clonewars;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class Character {
@@ -22,7 +23,17 @@ public class Character {
     }
 
     public List<Buff> getBuffs() {
+        cleanBuffs();
         return buffs;
+    }
+
+    private void cleanBuffs() {
+        // first, remove old buffs
+        Iterator<Buff> it = buffs.iterator();
+        while (it.hasNext()) {
+            Buff buff = it.next();
+            if (buff.getDuration() < 1) it.remove();
+        }
     }
 
     public void addBuff(Buff buff) {
@@ -30,7 +41,8 @@ public class Character {
     }
 
     public boolean hasBuff(String buffName) {
-        for (Buff buff : getBuffs()) {
+        cleanBuffs();
+        for (Buff buff : buffs) {
             if (buff.getName().equals(buffName)) {
                 return true;
             }

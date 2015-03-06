@@ -31,4 +31,9 @@ abstract public class Buff {
             return 12 * (int)Math.pow(1.5, stats.getLevel());
         }
     }
+
+    // IDE vomit
+    public int getDuration() {
+        return duration;
+    }
 }
