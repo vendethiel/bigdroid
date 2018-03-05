@@ -31,7 +31,6 @@ public class Main {
         Spec[] specs = {jedi, sith, bounty_hunter, imperial_agent, mercenary, jawa};
 
         ZoneFactory zoneFactory = new ZoneFactory(5, 8);
-        // monsterfactory?
 
         new World(specs, zoneFactory).run();
     }
